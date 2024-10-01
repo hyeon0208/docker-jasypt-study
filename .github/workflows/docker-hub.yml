@@ -53,4 +53,4 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest,${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ steps.git.outputs.hash }}
         build-args: |
           BUILD_DATE=${{ steps.date.outputs.date }}
-          GIT_COMMIT=${{ steps.git.outputs.commit-hash }}
+          GIT_COMMIT=${{ steps.git.outputs.commit-hash }}
