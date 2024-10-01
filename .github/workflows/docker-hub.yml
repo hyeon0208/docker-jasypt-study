@@ -50,7 +50,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-study:${{ steps.git.outputs.hash }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-study:${{ steps.git.outputs.commit-hash }}
         build-args: |
           BUILD_DATE=${{ steps.date.outputs.date }}
           GIT_COMMIT=${{ steps.git.outputs.commit-hash }}
