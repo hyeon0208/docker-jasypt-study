@@ -33,5 +33,3 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-password: 1234kaki
