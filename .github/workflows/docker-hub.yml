@@ -49,9 +49,11 @@ jobs:
       if: success()
       with:
         context: .
-        platforms: linux/amd64,linux/arm64
+        platforms: |
+          linux/amd64
+          linux/arm64
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAM }}/docker-study:${{ steps.git.outputs.commit-hash }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-study:${{ steps.git.outputs.commit-hash }}
         build-args: |
           BUILD_DATE=${{ steps.date.outputs.date }}
           GIT_COMMIT=${{ steps.git.outputs.commit-hash }}
