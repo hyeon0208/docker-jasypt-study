@@ -37,7 +37,9 @@ jobs:
     - name: Get current date
       id: date
       if: success()
-      run: echo "date=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+      run: |
+        export TZ='Asia/Seoul'
+        echo "date=$(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
     - name: Get git commit hash
       id: git
