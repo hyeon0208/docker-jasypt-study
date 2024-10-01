@@ -1,10 +1,10 @@
 FROM openjdk:17-jdk
 
 ARG BUILD_DATE
-ARG GIT_COMMIT
+ARG GIT_COMMIT_HASH
 
-LABEL org.opencontainers.image.created=$BUILD_DATE
-LABEL org.opencontainers.image.revision=$GIT_COMMIT
+LABEL CREATED_AT=$BUILD_DATE
+LABEL VERSION=$GIT_COMMIT_HASH
 
 ARG JAR_FILE=./build/libs/study-0.0.1-SNAPSHOT.jar
 
