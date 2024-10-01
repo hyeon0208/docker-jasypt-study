@@ -37,12 +37,12 @@ jobs:
     - name: Get current date
       id: date
       if: success()
-      run: echo "::set-output name=date::$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+      run: echo "date=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
     - name: Get git commit hash
       id: git
       if: success()
-      run: echo "::set-output name=hash::$(git rev-parse --short HEAD)"
+      run: echo "commit-hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
@@ -53,4 +53,4 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest,${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ steps.git.outputs.hash }}
         build-args: |
           BUILD_DATE=${{ steps.date.outputs.date }}
-          GIT_COMMIT=${{ steps.git.outputs.hash }}
+          GIT_COMMIT=${{ steps.git.outputs.commit-hash }}
