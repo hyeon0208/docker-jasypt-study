@@ -57,5 +57,5 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-study:${{ steps.git.outputs.commit-hash }}
         build-args: |
-          BUILD_DATE=${{ steps.date.outputs.date }}
-          GIT_COMMIT_HASH=${{ steps.git.outputs.commit-hash }}
+          createdAt=${{ steps.date.outputs.date }}
+          version=${{ steps.git.outputs.commit-hash }}
